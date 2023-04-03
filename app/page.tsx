@@ -1,20 +1,28 @@
-//if we fetch some data, we want the component to be server-side, so we are not using useState in this case
-import Movie from "./Movie"
+"use client"
 
-export default async function Home() {
+import { useState } from "react"
+import "../styles/globals.css"
+import MonthCalendar from "./MonthCalendar"
+import WeekCalendar from "./WeekCalendar"
 
-  const data = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`)
-  const result = await data.json()
+export default function Home() {
+
+  const [monthView, setMonthView] = useState<boolean>(false)
 
   return (
-    <main>
-      <div className="flex flex-wrap">
-      {result.results.map((div: any) => {
-        return(
-          <Movie title={div.title} key={div.id} id={div.id} posterPath={div.poster_path} releaseDate={div.release_date} />
-          )
-        })}
+    <div>
+      <div className="flex">
+        <p className="w-full text-2xl">Calendar</p>
+        <button 
+          className="float-right w-[180px] rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+          onClick={() => setMonthView(!monthView)}>Change View
+        </button>
       </div>
-    </main>
+      {monthView?
+        <MonthCalendar/>
+        :
+        <WeekCalendar/>
+      }
+    </div>
   )
 }
