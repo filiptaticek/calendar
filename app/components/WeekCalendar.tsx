@@ -1,8 +1,10 @@
+import WeekCalendarCell from "./WeekCalendarCell"
+import { Button } from "./Button"
+import { useState } from "react"
 
-import { TextArea } from "./TextArea"
+export default function WeekCalendar ({changeView}: {changeView: (arg: boolean) => void}) {
 
-export default function WeekCalendar ({weeksBack}:{weeksBack:number}) {
-
+  const [weeksBack, setWeeksBack] = useState<number>(0)
   const today = new Date()
   const monday = new Date(today.setDate(today.getDate() - today.getDay() + 1))
   function getDate (number:number) {return(new Date(monday.getFullYear(), monday.getMonth(), monday.getDate()+number+weeksBack*7).toISOString())}
@@ -39,16 +41,23 @@ export default function WeekCalendar ({weeksBack}:{weeksBack:number}) {
   ]
 
   return(
-    <div className="my-10 flex flex-wrap border border-black">
-      {daysObjects.map((day) => {
-        return(
-          <div key={day.name} className="h-[150px] w-[14.285714285%] border border-black px-5 py-2">
-            <p className="mb-2 border-b border-black text-center font-bold">{day.name}</p>
-            <p className="text-center">{(day.date).slice(0,10)}</p>
-            <TextArea/>
-          </div>
-        )
-      })}
-    </div>
+    <>
+      <div className="mb-10 flex w-full">
+        <p className="w-full text-2xl">Week calendar</p>
+        <Button text={"Previous week"} onClick={() => setWeeksBack(weeksBack-1)}/>
+        <Button text="Change view" onClick={changeView}/>
+        <Button text={"Next week"} onClick={() => setWeeksBack(weeksBack+1)}/>
+      </div>
+      <div className="flex flex-wrap">
+
+      </div>
+      <div className="flex flex-wrap border border-black">
+        {daysObjects.map((day) => {
+          return(
+            <WeekCalendarCell key={day.name} day={day}/>
+          )
+        })}
+      </div>
+    </>
   )
 }

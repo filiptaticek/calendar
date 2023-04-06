@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import { useState } from "react"
 
 export function TextArea () {
@@ -18,8 +19,9 @@ export function TextArea () {
       onBlur={handleSubmit} 
       value={dayInsert} 
       onChange={handleDayInsert} 
+      onClick={event => event.stopPropagation()}
       placeholder="Write in your note" 
-      className="w-[100%] resize-none text-center">
+      className="pointer-events-stop pointer-events-auto w-[100%] resize-none bg-transparent text-center">
     </textarea>
   )
 }

@@ -11,5 +11,10 @@ module.exports = {
   theme: {
     extend: {},
   },
+  variants: {
+    extend: {
+      pointerEvents: ["stop"],
+    },
+  },
   plugins: [],
 }

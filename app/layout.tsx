@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className='m-auto max-w-screen-2xl border border-black p-10'>
+        <div className='m-auto max-w-screen-2xl p-10'>
           {children}
         </div>
       </body>
