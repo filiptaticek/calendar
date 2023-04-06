@@ -21,7 +21,7 @@ export function TextArea () {
       onChange={handleDayInsert} 
       onClick={event => event.stopPropagation()}
       placeholder="Write in your note" 
-      className="pointer-events-stop pointer-events-auto w-[100%] resize-none bg-transparent text-center">
-    </textarea>
+      className="pointer-events-stop pointer-events-auto w-[100%] resize-none bg-transparent text-center"
+    />
   )
 }
