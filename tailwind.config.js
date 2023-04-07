@@ -13,7 +13,6 @@ module.exports = {
   },
   variants: {
     extend: {
-      pointerEvents: ["stop"],
     },
   },
   plugins: [],

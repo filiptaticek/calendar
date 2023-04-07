@@ -1,6 +1,7 @@
-import WeekCalendarCell from "./WeekCalendarCell"
+import WeekCalendarCell from "./Cells/WeekCalendarCell"
 import { Button } from "./Button"
 import { useState } from "react"
+import { fakeEvents } from "../data"
 
 export default function WeekCalendar ({changeView}: {changeView: (arg: boolean) => void}) {
 
@@ -48,13 +49,19 @@ export default function WeekCalendar ({changeView}: {changeView: (arg: boolean) 
         <Button text="Change view" onClick={changeView}/>
         <Button text={"Next week"} onClick={() => setWeeksBack(weeksBack+1)}/>
       </div>
-      <div className="flex flex-wrap">
-
+      <div className="flex flex-wrap border-x border-t border-black">
+        {daysObjects.map((day) => {
+          return(
+            <div key={day.name} className="h-5 w-[14.285714285%] text-center">
+              <p>{day.name}</p>
+            </div>
+          )
+        })}
       </div>
       <div className="flex flex-wrap border border-black">
         {daysObjects.map((day) => {
           return(
-            <WeekCalendarCell key={day.name} day={day}/>
+            <WeekCalendarCell events={fakeEvents} key={day.name} day={day}/>
           )
         })}
       </div>

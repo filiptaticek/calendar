@@ -1,7 +1,7 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import { useState } from "react"
 
-export function TextArea () {
+export function TextArea ({onClick, onBlur}: {onClick?: () => void, onBlur?: () => void}) {
 
   const [dayInsert, setDayInsert] = useState<string>("")
 
@@ -11,6 +11,7 @@ export function TextArea () {
   
   const handleSubmit = (e: any) => {
     e.preventDefault()
+    onBlur?onBlur():null
     console.log(dayInsert)
   }
 
@@ -19,9 +20,13 @@ export function TextArea () {
       onBlur={handleSubmit} 
       value={dayInsert} 
       onChange={handleDayInsert} 
-      onClick={event => event.stopPropagation()}
-      placeholder="Write in your note" 
-      className="pointer-events-stop pointer-events-auto w-[100%] resize-none bg-transparent text-center"
+      onClick={event => {
+        onClick?onClick():null
+        event.stopPropagation()
+      }
+      }
+      placeholder="New event..." 
+      className="pointer-events-stop pointer-events-auto h-[80px] w-[100%] resize-none rounded-md border border-black bg-transparent p-2"
     />
   )
 }
