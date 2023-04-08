@@ -1,31 +1,23 @@
+import { IEvent } from "@/app/types"
 import { AnyAction } from "redux"
 
-import { IUser } from "../../types"
-
-export const setUsers = (users: Array<IUser>): AnyAction => {
+export const addSingleEvent = (newevent: IEvent): AnyAction => {
   return {
-    type: "SET_USERS",
-    users: users
+    type: "ADD_EVENT",
+    newevent: newevent
   }
 }
 
-export const addSingleUser = (newuser: IUser): AnyAction => {
+export const removeSingleEvent = (deleteduser_id: number): AnyAction => {
   return {
-    type: "ADD_USER",
-    newuser: newuser
-  }
-}
-
-export const removeSingleUser = (deleteduser_id: number): AnyAction => {
-  return {
-    type: "REMOVE_USER",
+    type: "REMOVE_EVENT",
     deleteduser_id: deleteduser_id
   }
 }
 
-export const updateSingleUser = (updated_user_id: number, newrecord: IUser): AnyAction => {
+export const updateSingleEvent = (updated_user_id: number, newrecord: IEvent): AnyAction => {
   return {
-    type: "UPDATE_USER",
+    type: "UPDATE_EVENT",
     updated_user_id: updated_user_id,
     newrecord: newrecord
   }

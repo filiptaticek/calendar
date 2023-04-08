@@ -7,3 +7,6 @@ export interface IEvent {
 }
 
 export type Color = "red" | "blue" | "green" | "yellow" | "orange" | "purple" | "pink" | "brown" | "grey"
+export interface State {
+    events: IEvent[]
+}
