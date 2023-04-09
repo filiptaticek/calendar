@@ -10,12 +10,12 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { addSingleEvent } from "@/app/store/actions"
 
-export function AddEntryForm ({day, setShowForm}:{day: {name:string, date:string}, setShowForm: (value:boolean) => void}) {
+export function AddEntryForm ({day, setShowForm}:{day: string, setShowForm: (value:boolean) => void}) {
 
   const dispatch = useDispatch()
   const [textArea , setTextArea] = useState<string>("")
   const [color, setColor] = useState<Color>("blue" as Color)
-  const todayShort = (day.date).toString().slice(0, 11)
+  const todayShort = (day).toString().slice(0, 11)
   const [from, setFrom] = useState<string>(`${todayShort}08:00`)
   const [to, setTo] = useState<string>(`${todayShort}09:00`)
 

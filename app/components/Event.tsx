@@ -13,7 +13,11 @@ export function Event ({event}:{event:IEvent}) {
       {
         showForm &&<EditEntryForm event={event} setShowForm={setShowForm} />
       }
-      <div onClick={()=>setShowForm(true)} key={event.name} className={clsx("w-full cursor-pointer border-y border-black p-1", getLighterColor(event.color))}>
+      <div 
+        onClick={()=>setShowForm(true)} 
+        key={event.name} 
+        className={clsx("w-full cursor-pointer p-1 text-center font-normal text-white", getLighterColor(event.color))}
+      >
         <p>{event.name}</p>
       </div>
     </>

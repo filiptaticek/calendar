@@ -4,10 +4,12 @@ import { IEvent } from "../../types"
 import { Event } from "../Event"
 import { useState } from "react"
 import { AddEntryForm } from "../Forms/AddEntryForm"
+import { useTranslation } from "react-i18next"
 
-export default function WeekCalendarCell ({day, events}:{events:IEvent[], day:{name:string, date:string}}) {
+export default function WeekCalendarCell ({day, events}:{events:IEvent[], day:string}) {
 
   const [showForm, setShowForm] = useState(false)
+  const {t} = useTranslation()
 
   return(
     <div className="h-[300px] w-[14.2857142857%] border border-black pb-4 pt-2">
@@ -15,18 +17,18 @@ export default function WeekCalendarCell ({day, events}:{events:IEvent[], day:{n
         showForm &&
         <AddEntryForm day={day} setShowForm={setShowForm} />
       }
-      <p className="text-center">
-        {(new Date(day.date)).getUTCDate()}
-      </p>
+      <div className="mt-[-9px] h-[25px] text-center">
+        {(new Date(day)).getUTCDate()}
+      </div>
       <p 
         onClick={() =>setShowForm(true)} 
-        className="w-full cursor-pointer border-y border-gray-400 p-1 text-gray-400">
-          Add a new event
+        className="w-full cursor-pointer border-y border-gray-400 p-1 text-center text-gray-400">
+        {t("new_event")}
       </p>
       {events.map((event:IEvent) => {
         const eventFromDate = new Date(event.from)
         const eventToDate = new Date(event.to)
-        const [year, month, den] = day.date.split("-")
+        const [year, month, den] = day.split("-")
         const dayDate = new Date(Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(den), 0, 0, 0))
         if (dayDate >= eventFromDate && dayDate <= eventToDate) {
           return <Event key={event.name} event={event} />

@@ -1,7 +1,8 @@
 import { Color } from "../types"
 
-export const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-export const inputSameProperties ="bg-transparent w-full rounded-md border border-black p-2 m-auto"
+export const monthsNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+export const daysNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+export const inputSameProperties ="bg-transparent w-full rounded-md border border-white p-2 m-auto outline-none"
 export const arrowSameProperties = "mt-[6px] h-5 cursor-pointer"
 export const fakeEvents = [
   {
@@ -80,5 +81,75 @@ export const fakeEvents = [
     to: "2023-05-05T14:00:00.000Z",
     color: "orange" as Color,
     id: 11,
+  },
+  {
+    name: "Yoga class",
+    from: "2023-04-10T08:30:00.000Z",
+    to: "2023-04-10T10:00:00.000Z",
+    color: "green" as Color,
+    id: 12,
+  },
+  {
+    name: "Job interview",
+    from: "2023-04-15T14:00:00.000Z",
+    to: "2023-04-15T16:00:00.000Z",
+    color: "blue" as Color,
+    id: 13,
+  },
+  {
+    name: "Wedding anniversary",
+    from: "2023-04-22T18:00:00.000Z",
+    to: "2023-04-22T22:00:00.000Z",
+    color: "pink" as Color,
+    id: 14,
+  },
+  {
+    name: "Gym workout",
+    from: "2023-04-25T07:00:00.000Z",
+    to: "2023-04-25T08:30:00.000Z",
+    color: "green" as Color,
+    id: 15,
+  },
+  {
+    name: "Volunteering",
+    from: "2023-04-28T12:00:00.000Z",
+    to: "2023-04-28T16:00:00.000Z",
+    color: "orange" as Color,
+    id: 16,
+  },
+  {
+    name: "Family reunion",
+    from: "2023-05-01T11:00:00.000Z",
+    to: "2023-05-01T16:00:00.000Z",
+    color: "purple" as Color,
+    id: 17,
+  },
+  {
+    name: "Dentist appointment",
+    from: "2023-05-06T10:00:00.000Z",
+    to: "2023-05-06T11:00:00.000Z",
+    color: "blue" as Color,
+    id: 18,
+  },
+  {
+    name: "Birthday party",
+    from: "2023-05-08T18:00:00.000Z",
+    to: "2023-05-08T22:00:00.000Z",
+    color: "pink" as Color,
+    id: 19,
+  },
+  {
+    name: "Basketball game",
+    from: "2023-05-12T19:00:00.000Z",
+    to: "2023-05-12T22:00:00.000Z",
+    color: "green" as Color,
+    id: 20,
+  },
+  {
+    name: "Vacation",
+    from: "2023-05-20T12:00:00.000Z",
+    to: "2023-05-27T12:00:00.000Z",
+    color: "orange" as Color,
+    id: 21,
   }
 ]
