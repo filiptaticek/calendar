@@ -9,7 +9,7 @@ import clsx from "clsx"
 
 export default function WeekCalendarCell ({day, events}:{events:IEvent[], day:string}) {
 
-  const [showForm, setShowForm] = useState(false)
+  const [showForm, setShowForm] = useState<boolean>(false)
   const {t} = useTranslation()
 
   return(
@@ -26,18 +26,20 @@ export default function WeekCalendarCell ({day, events}:{events:IEvent[], day:st
         className="w-full cursor-pointer border-y border-gray-400 p-1 text-center text-gray-400">
         {t("new_event")}
       </p>
-      {events.map((event:IEvent) => {
+      {events.map((event:IEvent) => { /* component gets all the events */
         const eventFromDate = new Date(event.from)
         const eventToDate = new Date(event.to)
         const [year, month, den] = day.split("-")
         const dayDate = new Date(Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(den), 0, 0, 0))
-        if (dayDate >= eventFromDate && dayDate <= eventToDate) {
+        if ( /*event is displayed if it is on this day (if one of these three conditions are met*/
+          (dayDate >= eventFromDate && dayDate <= eventToDate) ||
+          dayDate.toDateString() === eventFromDate.toDateString() ||
+          dayDate.toDateString() === eventToDate.toDateString()
+        ) {
           return <Event key={event.name} event={event} />
+        } else {
+          return null
         }
-        else if (dayDate.toDateString() === eventFromDate.toDateString() || dayDate.toDateString() === eventToDate.toDateString()) {
-          return <Event key={event.name} event={event} />
-        }
-        return null
       })
       }
     </div>

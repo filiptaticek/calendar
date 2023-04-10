@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 
 import clsx from "clsx"
+import { motion } from "framer-motion"
 
 interface IUniversalForm {
     onSubmit?: any;
@@ -18,9 +19,10 @@ export const UniversalForm = ({ onSubmit, children, closeForm, className, backgr
       className={clsx("fixed left-0 top-0 h-screen w-screen overflow-hidden overflow-y-scroll bg-black/70 px-10 py-[100px] text-left lg:px-0",className)}
     >
       <form className={clsx("relative m-auto w-[300px] rounded-xl p-10 text-white sm:w-[500px]",background)} onSubmit={onSubmit}>
-        <img 
+        <motion.img 
+          whileHover={{ scale:1.3 }}
           className="relative bottom-[30px] h-[40px] cursor-pointer sm:left-[412px]" src="zavrit_formular.png" onClick={closeForm}>
-        </img>
+        </motion.img>
         <div className="overflow-hidden">
           {children}
         </div>

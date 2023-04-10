@@ -66,7 +66,7 @@ export const fakeEvents = [
     name: "Hiking",
     from: "2023-04-27T08:00:00.000Z",
     to: "2023-04-27T14:00:00.000Z",
-    color: "green" as Color,
+    color: "yellow" as Color,
     id: 9,
   },
   {
@@ -87,7 +87,7 @@ export const fakeEvents = [
     name: "Yoga class",
     from: "2023-04-10T08:30:00.000Z",
     to: "2023-04-10T10:00:00.000Z",
-    color: "green" as Color,
+    color: "brown" as Color,
     id: 12,
   },
   {
@@ -152,5 +152,12 @@ export const fakeEvents = [
     to: "2023-05-27T12:00:00.000Z",
     color: "orange" as Color,
     id: 21,
-  }
+  },
+  {
+    name: "Dinner with family",
+    from: "2023-04-05T18:00:00.000Z",
+    to: "2023-04-15T22:00:00.000Z",
+    color: "yellow" as Color,
+    id: 22,
+  },
 ]

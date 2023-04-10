@@ -1,6 +1,8 @@
 {
-    "change_view": "Change view",
+    "switch": "Change view",
     "new_event": "New event",
+    "today": "Today",
+    "too_many_events": "*Scroll to see all events",
 
     "monday": "Monday",
     "tuesday": "Tuesday",

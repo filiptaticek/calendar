@@ -32,17 +32,23 @@ export default function MonthCalendar ({changeView}: {changeView: (arg: boolean)
 
   return (
     <>
-      <Navigation changeMonth={changeMonth} todayDate={todayDate} changeView={changeView}/>
-      <WeekDays />
+      <Navigation backToday={() =>setTodayDate(today)} changeMonth={changeMonth} todayDate={todayDate} changeView={changeView}/> {/* buttons */}
+      <WeekDays /> {/* names of the days of the week */}
       <div onClick={(event) => event.stopPropagation()}>
-        <Calendar 
+        <Calendar /* calendar component from react-calendar library */
           key={todayDate.getMonth()}
           className="border-x border-b-2 border-black text-center font-bold"
           formatDay={(local, date) => date.getDate().toString() }
           value={todayDate} 
           formatShortWeekday={() =>""}
           tileClassName={( date ) => getTileClasses(date)}
-          tileContent={({ date }) => <MonthCalendarCell actualMonth={todayDate.getMonth()} date={date} events={events}/>}
+          tileContent={({ date }) => 
+            <MonthCalendarCell 
+              actualMonth={todayDate.getMonth()} 
+              date={date} 
+              events={events}
+            />
+          }
           showWeekNumbers={false}
           showNavigation={false}
         />

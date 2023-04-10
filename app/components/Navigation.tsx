@@ -4,7 +4,15 @@ import { arrowSameProperties, monthsNames } from "../data"
 import { Button } from "./FormParts/Button"
 import { useTranslation } from "react-i18next"
 
-export function Navigation ({changeMonth, todayDate, changeView}: {changeMonth: (arg: number) => void, todayDate: Date, changeView: (arg: boolean) => void}) {
+interface INavigation {
+  changeMonth: (arg: number) => void
+  todayDate: Date
+  changeView: (arg: boolean) => void
+  backToday: () => void
+}
+
+
+export function Navigation ({changeMonth, todayDate, changeView, backToday}: INavigation) {
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
@@ -13,7 +21,7 @@ export function Navigation ({changeMonth, todayDate, changeView}: {changeMonth: 
   const { t } = useTranslation()
 
   return(
-    <div className="mb-5 flex w-full">
+    <div className="mb-5 w-full sm:flex">
       <div className="relative top-[4px] flex w-full ">
         <img 
           className={arrowSameProperties}
@@ -29,13 +37,32 @@ export function Navigation ({changeMonth, todayDate, changeView}: {changeMonth: 
           onClick={() => changeMonth(1)}
         />
       </div>
-      <Button className="mr-2" onClick={changeView}>{t("change_view") as string}</Button>
+      <Button onClick={changeView}>
+        <div className="m-auto flex w-fit">
+          {t("switch") as string}
+          <img
+            className="relative top-[2px] ml-3 h-5"
+            alt="Change view"
+            src={"switch.png"}
+          />
+        </div>
+      </Button>
+      <Button className="mx-2" onClick={backToday}>
+        <div className="m-auto flex w-fit">
+          {t("today") as string}
+          <img
+            className="relative top-[2px] ml-3 h-5"
+            alt="Change language"
+            src="calendar_white.png"
+          />
+        </div>
+      </Button>
       <Button onClick={() => changeLanguage(i18n.language =="cs" ? "en" : "cs")}>
         <div className="m-auto flex w-fit">
           {t(i18n.language =="cs" ? "English" : "Česky") as string}
           <img
-            className="ml-2 h-6 w-6"
-            alt="Change view"
+            className="ml-3 h-6 w-6"
+            alt="Change language"
             src={i18n.language =="en" ? "cs.png" : "en.png"}
           />
         </div>

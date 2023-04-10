@@ -47,7 +47,7 @@ export function EditEntryForm ({event, setShowForm}:{event:IEvent, setShowForm: 
       <SelectColor required value={color} onChange={(e:any) =>setColor(e.target.value)} />
       <div className="mt-12 flex w-full">
         <Button type="submit" className="mr-2">{t("save")}</Button>
-        <Button onClick={handleDelete} className="bg-red-500">{t("delete")}</Button>
+        <Button onClick={handleDelete} className="bg-red-500 hover:bg-red-400">{t("delete")}</Button>
       </div>
     </UniversalForm>
   )

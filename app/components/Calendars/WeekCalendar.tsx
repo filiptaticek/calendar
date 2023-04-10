@@ -18,7 +18,7 @@ export default function WeekCalendar ({changeView}: {changeView: (arg: boolean) 
   
   return(
     <>
-      <Navigation changeMonth={(n:number) =>setWeeksBack(prevState => prevState + n)} todayDate={firstDayOfWeek} changeView={changeView}/>
+      <Navigation backToday={() => setWeeksBack(0)}  changeMonth={(n:number) =>setWeeksBack(prevState => prevState + n)} todayDate={firstDayOfWeek} changeView={changeView}/>
       <WeekDays /> {/* names of the days navigation */}
       <div className="flex-wrap border-black sm:flex sm:border"> {/* calendar cells itself */}
         {[1,2,3,4,5,6,7].map((dayNumber) => { {/* each day has different position in a week, therefore we use this [1,2,3,4,5,6,7] array */}

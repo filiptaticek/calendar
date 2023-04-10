@@ -1,6 +1,8 @@
 {
-    "change_view":"Změnit mód",
+    "switch":"Změnit mód",
     "new_event": "Nová událost",
+    "today": "Dnes",
+    "too_many_events": "*Scrolluj pro více událostí",
 
     "monday": "Pondělí",
     "tuesday": "Úterý",
