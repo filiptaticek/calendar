@@ -20,7 +20,7 @@ export default function WeekCalendar ({changeView}: {changeView: (arg: boolean) 
     <>
       <Navigation changeMonth={(n:number) =>setWeeksBack(prevState => prevState + n)} todayDate={firstDayOfWeek} changeView={changeView}/>
       <WeekDays /> {/* names of the days navigation */}
-      <div className="flex flex-wrap border border-black"> {/* calendar cells itself */}
+      <div className="flex-wrap border-black sm:flex sm:border"> {/* calendar cells itself */}
         {[1,2,3,4,5,6,7].map((dayNumber) => { {/* each day has different position in a week, therefore we use this [1,2,3,4,5,6,7] array */}
           return(
             <WeekCalendarCell events={events} key={dayNumber} day={getDate(dayNumber)}/>

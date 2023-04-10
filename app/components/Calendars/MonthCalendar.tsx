@@ -6,6 +6,7 @@ import { useSelector } from "react-redux"
 import { State } from "../../types"
 import { WeekDays } from "../WeekDays"
 import { Navigation } from "../Navigation"
+import clsx from "clsx"
 
 export default function MonthCalendar ({changeView}: {changeView: (arg: boolean) => void}) {
 
@@ -21,10 +22,10 @@ export default function MonthCalendar ({changeView}: {changeView: (arg: boolean)
 
   const getTileClasses = ({ date }: { date: Date }) => {
 
-    const commonProperties = "border-gray-800 border-t-2 border-x font-normal h-[150px]"
+    const commonProperties = "cursor-auto border-gray-800 border-t-2 border-x font-normal h-[155px]"
     if (date.getMonth() === todayDate.getMonth()) {
-      return `${commonProperties}`
-    } else {
+      return clsx(commonProperties, date.toISOString().substring(0,10) === ((new Date().toISOString()).substring(0,10)) && "bg-sky-100")
+    } else{
       return `pointer-events-none ${commonProperties}`
     }
   }
@@ -35,7 +36,7 @@ export default function MonthCalendar ({changeView}: {changeView: (arg: boolean)
       <WeekDays />
       <div onClick={(event) => event.stopPropagation()}>
         <Calendar 
-          key={todayDate.getMonth()} // add key prop
+          key={todayDate.getMonth()}
           className="border-x border-b-2 border-black text-center font-bold"
           formatDay={(local, date) => date.getDate().toString() }
           value={todayDate} 

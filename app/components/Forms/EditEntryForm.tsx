@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux"
 import { getLighterColor } from "../../functions"
 import { useState } from "react"
 import { updateSingleEvent, removeSingleEvent } from "@/app/store/actions"
+import { useTranslation } from "react-i18next"
 
 export function EditEntryForm ({event, setShowForm}:{event:IEvent, setShowForm: (value:boolean) => void}) {
 
@@ -17,6 +18,7 @@ export function EditEntryForm ({event, setShowForm}:{event:IEvent, setShowForm: 
   const [color, setColor] = useState<Color>(event.color)
   const [from, setFrom] = useState<string>((event.from).slice(0,16))//(new Date).toISOString().slice(0, 16))
   const [to, setTo] = useState<string>((event.to).slice(0,16))
+  const {t} = useTranslation()
 
   function handleSubmit (e:any) {
     e.preventDefault()
@@ -32,21 +34,20 @@ export function EditEntryForm ({event, setShowForm}:{event:IEvent, setShowForm: 
   return(
     <UniversalForm 
       background={getLighterColor(color)} 
-      header="New entry" 
       onSubmit={handleSubmit} 
       closeForm={() =>{setShowForm(false), setTextArea(event.name), setFrom(event.from), setTo(event.to), setColor(event.color)}}
     >
-      <Description text="Content" />
+      <Description text={t("name")} />
       <TextArea maxLength={10} required value={textArea} onChange={e =>setTextArea(e.target.value)} />
-      <Description text="From" />
+      <Description text={t("from")} />
       <SelectTime required value={from} onChange={(e:any) => setFrom(e.target.value)}  />
-      <Description text="To" />
+      <Description text={t("to")} />
       <SelectTime required value={to} onChange={(e:any) => setTo(e.target.value)}  />
-      <Description text="Color" />
+      <Description text={t("color")} />
       <SelectColor required value={color} onChange={(e:any) =>setColor(e.target.value)} />
       <div className="mt-12 flex w-full">
-        <Button type="submit" className="mr-2 bg-sky-500" text="Save" />
-        <Button onClick={handleDelete} className="bg-red-500" text="Delete" />
+        <Button type="submit" className="mr-2">{t("save")}</Button>
+        <Button onClick={handleDelete} className="bg-red-500">{t("delete")}</Button>
       </div>
     </UniversalForm>
   )

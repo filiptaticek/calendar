@@ -5,6 +5,7 @@ import { Event } from "../Event"
 import { useState } from "react"
 import { AddEntryForm } from "../Forms/AddEntryForm"
 import { useTranslation } from "react-i18next"
+import clsx from "clsx"
 
 export default function WeekCalendarCell ({day, events}:{events:IEvent[], day:string}) {
 
@@ -12,7 +13,7 @@ export default function WeekCalendarCell ({day, events}:{events:IEvent[], day:st
   const {t} = useTranslation()
 
   return(
-    <div className="h-[300px] w-[14.2857142857%] border border-black pb-4 pt-2">
+    <div className={clsx("my-6 w-full border border-black pb-6 pt-2 sm:my-0 sm:w-[14.2857142857%]", day.substring(0,10)==((new Date()).toISOString()).substring(0,10)&&"bg-sky-100")}>
       {
         showForm &&
         <AddEntryForm day={day} setShowForm={setShowForm} />

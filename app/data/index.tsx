@@ -1,9 +1,10 @@
 import { Color } from "../types"
 
-export const monthsNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-export const daysNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+export const monthsNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+export const daysNames = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 export const inputSameProperties ="bg-transparent w-full rounded-md border border-white p-2 m-auto outline-none"
 export const arrowSameProperties = "mt-[6px] h-5 cursor-pointer"
+export const colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "brown"]
 export const fakeEvents = [
   {
     name: "Running",

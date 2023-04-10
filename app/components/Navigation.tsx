@@ -9,18 +9,19 @@ export function Navigation ({changeMonth, todayDate, changeView}: {changeMonth: 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
   }
+  
   const { t } = useTranslation()
 
   return(
-    <div className="mb-10 flex w-full">
-      <div className="flex w-full">
+    <div className="mb-5 flex w-full">
+      <div className="relative top-[4px] flex w-full ">
         <img 
           className={arrowSameProperties}
           alt="Previous month"
           src="/sipka_doleva.png"
           onClick={() => changeMonth(-1)}
         />
-        <p className="mx-2 text-2xl">{monthsNames[todayDate.getMonth()]} {todayDate.getFullYear()}</p>
+        <p className="mx-2 text-2xl font-bold">{t(monthsNames[todayDate.getMonth()])} {todayDate.getFullYear()}</p>
         <img
           className={arrowSameProperties}
           alt="Next month"
@@ -28,13 +29,17 @@ export function Navigation ({changeMonth, todayDate, changeView}: {changeMonth: 
           onClick={() => changeMonth(1)}
         />
       </div>
-      <img  
-        className="ml-auto h-10 w-10"
-        alt="Change view"
-        src={i18n.language =="en" ? "cs.png" : "en.png"}
-        onClick={() => changeLanguage(i18n.language =="cs" ? "en" : "cs")}
-      />
-      <Button text={t("change_view")} onClick={changeView}/>
+      <Button className="mr-2" onClick={changeView}>{t("change_view") as string}</Button>
+      <Button onClick={() => changeLanguage(i18n.language =="cs" ? "en" : "cs")}>
+        <div className="m-auto flex w-fit">
+          {t(i18n.language =="cs" ? "English" : "Česky") as string}
+          <img
+            className="ml-2 h-6 w-6"
+            alt="Change view"
+            src={i18n.language =="en" ? "cs.png" : "en.png"}
+          />
+        </div>
+      </Button>
     </div>
   )
 }

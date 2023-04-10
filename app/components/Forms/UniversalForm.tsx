@@ -4,7 +4,6 @@
 import clsx from "clsx"
 
 interface IUniversalForm {
-    header: any;
     onSubmit?: any;
     closeForm: any;
     children: any;

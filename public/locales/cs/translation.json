@@ -1,4 +1,42 @@
 {
     "change_view":"Změnit mód",
-    "new_event": "Nová událost"
+    "new_event": "Nová událost",
+
+    "monday": "Pondělí",
+    "tuesday": "Úterý",
+    "wednesday": "Středa",
+    "thursday": "Čtvrtek",
+    "friday": "Pátek",
+    "saturday": "Sobota",
+    "sunday": "Neděle",
+
+    "name": "Název události",
+    "new_event...": "Nová událost...",
+    "from": "Od",
+    "to": "Do",
+    "color": "Barva",
+    "save": "Uložit",
+    "delete": "Smazat",
+
+    "january": "Leden", 
+    "february": "Únor",
+    "march": "Březen", 
+    "april": "Duben",
+    "may": "Květen", 
+    "june": "Červen", 
+    "july": "Červenec", 
+    "august": "Srpen",
+    "september": "Září", 
+    "october": "Říjen", 
+    "november": "Listopad", 
+    "december": "Prosinec",
+
+    "red": "Červená",
+    "blue": "Modrá",
+    "green": "Zelená",
+    "yellow": "Žlutá",
+    "orange": "Oranžová",
+    "purple": "Fialová",
+    "pink": "Růžová",
+    "brown": "Hnědá"
 }

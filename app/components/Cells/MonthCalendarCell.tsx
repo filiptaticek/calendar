@@ -21,7 +21,7 @@ export function MonthCalendarCell ({date, events, actualMonth}:{date: Date, even
             <p onClick={() =>setShowForm(true)} className="w-full cursor-pointer border-y border-gray-400 p-1 font-normal text-gray-400">
               {t("new_event")}
             </p>
-            { /* component gets all the events */
+            <div className="h-[65px] overflow-scroll"> { /* component gets all the events */
               events.map((event:IEvent) => {
                 const eventFromDate = new Date(event.from)
                 const eventToDate = new Date(event.to)
@@ -37,6 +37,7 @@ export function MonthCalendarCell ({date, events, actualMonth}:{date: Date, even
                 else return null
               })
             }
+            </div>
           </>
       }
     </div>

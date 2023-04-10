@@ -6,7 +6,7 @@ export interface IEvent {
     id:number
 }
 
-export type Color = "red" | "blue" | "green" | "yellow" | "orange" | "purple" | "pink" | "brown" | "grey"
+export type Color = "red" | "blue" | "green" | "yellow" | "orange" | "purple" | "pink" | "brown"
 export interface State {
     events: IEvent[]
 }

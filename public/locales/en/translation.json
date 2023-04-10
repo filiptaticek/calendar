@@ -1,4 +1,42 @@
 {
     "change_view": "Change view",
-    "new_event": "New event"
+    "new_event": "New event",
+
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December",
+    
+    "name": "Name of the event",
+    "new_event...": "New event...",
+    "from": "From",
+    "to": "To",
+    "color": "Color",
+    "save": "Save",
+    "delete": "Delete",
+
+    "red": "Red",
+    "blue": "Blue",
+    "green": "Green",
+    "yellow": "Yellow",
+    "orange": "Orange",
+    "purple": "Purple",
+    "pink": "Pink",
+    "brown": "Brown"
 }
